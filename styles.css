@@ -1,1 +1,90 @@
 /*  your css code here. If applicable */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f7f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 500px;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.progress-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #e0e0e0;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  background-color: #3498db;
+  z-index: 1;
+  transform: translateY(-50%);
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #e0e0e0;
+  color: #555;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: bold;
+}
+
+.circle.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.buttons button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
